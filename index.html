@@ -92,6 +92,12 @@ td.num { font-family: var(--font-mono); color: var(--text-3); width: 40px; }
 .progress { flex: 1; height: 8px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-pill); overflow: hidden; }
 .progress > div { height: 100%; background: var(--blue); border-radius: var(--r-pill); }
 footer { font-size: 12px; color: var(--text-3); }
+.cost-cols { display: flex; gap: 16px; flex-wrap: wrap; }
+.cost-col { flex: 1 1 260px; min-width: 0; }
+.cost-col h3 { font-size: 14px; font-weight: 600; margin: 0 0 4px; }
+.cost-col table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+.cost-col td { padding: 6px 0; border-bottom: 1px solid var(--border); }
+.cost-col tr:last-child td { border-bottom: none; }
 @media (max-width: 720px) {
   .shell { flex-direction: column; }
   .rail { width: 100%; height: auto; flex-direction: row; justify-content: flex-end; padding: 8px 16px;
@@ -117,7 +123,7 @@ footer { font-size: 12px; color: var(--text-3); }
   <div class="eyebrow">Development status</div>
   <h1>AI Casket</h1>
   <p class="lede">Where the build of the AI Casket assistant stands today. Generated from the project roadmap; last updated <span class="mono">2026-09-28</span>.</p>
-  <section class="stats" aria-label="Summary"><div class="stat"><div class="num">0<span class="of">/14</span></div><div class="label">Stages done</div></div><div class="stat"><div class="num blue">1</div><div class="label">In progress</div></div><div class="stat"><div class="num green">0<span class="of">/7</span></div><div class="label">Milestones reached</div></div><div class="stat"><div class="num text">Echo bot</div><div class="label">Next milestone</div></div></section>
+  <section class="stats" aria-label="Summary"><div class="stat"><div class="num">1<span class="of">/14</span></div><div class="label">Stages done</div></div><div class="stat"><div class="num blue">1</div><div class="label">In progress</div></div><div class="stat"><div class="num green">0<span class="of">/7</span></div><div class="label">Milestones reached</div></div><div class="stat"><div class="num text">Echo bot</div><div class="label">Next milestone</div></div></section>
   <section class="panel" aria-labelledby="h-milestones">
     <h2 id="h-milestones">Milestones</h2>
     <ol class="milestones">
@@ -148,12 +154,13 @@ footer { font-size: 12px; color: var(--text-3); }
 <tr><td class="num">10</td><td>Agent that pulls from the library</td><td><span class="badge is-todo"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/></svg>not started</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="0% of tasks done"><div style="width:0%"></div></div><span class="mono">0 / 4</span></div></td></tr>
 <tr><td class="num">11</td><td>Playwright</td><td><span class="badge is-todo"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/></svg>not started</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="0% of tasks done"><div style="width:0%"></div></div><span class="mono">0 / 4</span></div></td></tr>
 <tr><td class="num">12</td><td>Agentic submissions to the relevant parties</td><td><span class="badge is-todo"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/></svg>not started</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="0% of tasks done"><div style="width:0%"></div></div><span class="mono">0 / 15</span></div></td></tr>
-<tr><td class="num">13</td><td>Stakeholder status page</td><td><span class="badge is-active"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" class="fill"/></svg>in progress</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="75% of tasks done"><div style="width:75%"></div></div><span class="mono">3 / 4</span></div></td></tr>
-<tr><td class="num">14</td><td>Development cost counter</td><td><span class="badge is-todo"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/></svg>not started</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="0% of tasks done"><div style="width:0%"></div></div><span class="mono">0 / 6</span></div></td></tr>
+<tr><td class="num">13</td><td>Stakeholder status page</td><td><span class="badge is-done"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>done</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="100% of tasks done"><div style="width:100%"></div></div><span class="mono">4 / 4</span></div></td></tr>
+<tr><td class="num">14</td><td>Development cost counter</td><td><span class="badge is-active"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" class="fill"/></svg>in progress</span></td><td><div class="bar-cell"><div class="progress" role="img" aria-label="17% of tasks done"><div style="width:17%"></div></div><span class="mono">1 / 6</span></div></td></tr>
         </tbody>
       </table>
     </div>
   </section>
+<section class="panel" aria-labelledby="h-cost"><h2 id="h-cost">Development cost</h2><p class="mdesc">What building AI Casket has cost in Claude Code usage, by stage. Cost as of <span class="mono">2026-09-28</span>.</p><div class="cost-cols"><div class="cost-col"><h3>Spent so far: <span class="mono">0.00 SGD (API-equivalent)</span></h3><p class="mdesc">Projection not shown yet: needs 2 stages and 10 tasks done.</p><table><tbody></tbody></table></div><div class="cost-col"><h3>Spent so far: <span class="mono">0.00 SGD (subscription share)</span></h3><p class="mdesc">Projection not shown yet: needs 2 stages and 10 tasks done.</p><table><tbody></tbody></table></div></div></section>
   <footer>Stage numbers are identifiers, not build order.</footer>
 </main>
 </div>
